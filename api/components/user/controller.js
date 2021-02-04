@@ -17,17 +17,43 @@ module.exports = function (injectedStore) {
     return store.get(TABLA, id);
   }
 
-  function upsert(id) {
-    const user = {
-      name: body.name,
+  function post(body) {
+   let json= JSON.parse(body);
+    const data = {
+      name: json.name,
+      title: json.title,
     };
-    if (body.id) {
-      user.id = body.id;
-    } else {
-      user.id = nanoid();
-    }
-    return store.upsert(TABLA, id);
+    return store.post(TABLA, data);
   }
+
+  function put(body, id) {
+   let json= JSON.parse(body);
+    const data = {
+      name: json.name,
+      title: json.title,
+      compled: json.compled,
+
+    };
+    return store.put(TABLA, data,id);
+  }
+
+
+  function patch(body, id) {
+    console.log(body);
+    console.log(id);
+   let json= JSON.parse(body);
+    const data = {   
+      compled: json.compled,
+
+    };
+    return store.put(TABLA, data,id);
+  }
+
+
+
+
+
+
   function remove(id) {
     return store.remove(TABLA, id);
   }
@@ -35,7 +61,8 @@ module.exports = function (injectedStore) {
   return {
     list,
     get,
-    upsert,
-    remove,
+    post,
+    put,
+    patch,
   };
 };

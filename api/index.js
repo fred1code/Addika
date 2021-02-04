@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 const swaggerDoc= require('./swagger.json');
 
 //rutas
-app.use("/api/user", user);
+app.use("/api/todos", user);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.listen(config.api.port, () => {
