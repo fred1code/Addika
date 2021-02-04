@@ -39,24 +39,18 @@ module.exports = function (injectedStore) {
 
 
   function patch(body, id) {
-    console.log(body);
-    console.log(id);
    let json= JSON.parse(body);
     const data = {   
       compled: json.compled,
-
     };
-    return store.put(TABLA, data,id);
+    return store.patch(TABLA, data,id);
   }
 
 
-
-
-
-
-  function remove(id) {
-    return store.remove(TABLA, id);
+  function delet(id) {
+    return store.delet(TABLA, id);
   }
+
 
   return {
     list,
@@ -64,5 +58,6 @@ module.exports = function (injectedStore) {
     post,
     put,
     patch,
+    delet,
   };
 };

@@ -2,12 +2,13 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "Laravel",
+    "title": "addika",
     "contact": {}
   },
-  "host": "localhost:8000",
+  "host": "localhost:3000",
   "basePath": "/api",
   "schemes": [
+    "https",
     "http"
   ],
   "consumes": [
@@ -17,13 +18,53 @@
     "application/json"
   ],
   "paths": {
-    "/address/store": {
-      "post": {
-        "summary": "address laravel",
+    "/todos/": {
+      "get": {
+        "summary": "LIST",
         "tags": [
           "Misc"
         ],
-        "operationId": "addresslaravel",
+        "operationId": "LIST",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/todos/2": {
+      "get": {
+        "summary": "GET",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "GET",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/todos": {
+      "post": {
+        "summary": "POST",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "POST",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -33,7 +74,7 @@
         ],
         "parameters": [
           {
-            "name": "json",
+            "name": "data",
             "in": "formData",
             "required": true,
             "type": "string",
@@ -48,104 +89,13 @@
         }
       }
     },
-    "/user/store": {
-      "post": {
-        "summary": "user laravel",
-        "tags": [
-          "Misc"
-        ],
-        "operationId": "userlaravel",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ],
-        "parameters": [
-          {
-            "name": "json",
-            "in": "formData",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
-    "/user/login": {
-      "post": {
-        "summary": "login",
-        "tags": [
-          "Misc"
-        ],
-        "operationId": "login",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ],
-        "parameters": [
-          {
-            "name": "json",
-            "in": "formData",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
-    "/user/destroy": {
-      "delete": {
-        "summary": "user Destroy",
-        "tags": [
-          "Misc"
-        ],
-        "operationId": "userDestroy",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/user/update": {
+    "/todos/46": {
       "put": {
-        "summary": "user Update",
+        "summary": "PUT",
         "tags": [
           "Misc"
         ],
-        "operationId": "userUpdate",
+        "operationId": "PUT",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -155,14 +105,7 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "json",
+            "name": "data",
             "in": "formData",
             "required": true,
             "type": "string",
@@ -174,54 +117,42 @@
             "description": "",
             "headers": {}
           }
-        },
-        "security": []
-      }
-    },
-    "/address/destroy": {
+        }
+      },
       "delete": {
-        "summary": "Address Destroy",
+        "summary": "DELETE",
         "tags": [
           "Misc"
         ],
-        "operationId": "AddressDestroy",
+        "operationId": "DELETE",
         "deprecated": false,
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
             "headers": {}
           }
-        },
-        "security": []
+        }
       }
     },
-    "/address/all": {
-      "get": {
-        "summary": "all address",
+    "/46": {
+      "patch": {
+        "summary": "PATCH",
         "tags": [
           "Misc"
         ],
-        "operationId": "alladdress",
+        "operationId": "PATCH",
         "deprecated": false,
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
+            "name": "data",
+            "in": "query",
             "required": true,
             "type": "string",
             "description": ""
@@ -232,302 +163,69 @@
             "description": "",
             "headers": {}
           }
-        },
-        "security": []
-      }
-    },
-    "/address/user": {
-      "get": {
-        "summary": "user address",
-        "tags": [
-          "Misc"
-        ],
-        "operationId": "useraddress",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/user/all": {
-      "get": {
-        "summary": "user all",
-        "tags": [
-          "Misc"
-        ],
-        "operationId": "userall",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
-      }
-    },
-    "/address/update": {
-      "put": {
-        "summary": "Address Update",
-        "tags": [
-          "Misc"
-        ],
-        "operationId": "AddressUpdate",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "json",
-            "in": "formData",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "security": []
+        }
       }
     }
   },
   "definitions": {
-    "json": {
-      "title": "json",
+    "data": {
+      "title": "data",
       "example": {
-        "user_id": "43",
-        "del": "gdl",
-        "col": "centro",
-        "numIn": "63",
-        "numEx": "63",
-        "street": "paz"
-      },
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string"
-        },
-        "del": {
-          "type": "string"
-        },
-        "col": {
-          "type": "string"
-        },
-        "numIn": {
-          "type": "string"
-        },
-        "numEx": {
-          "type": "string"
-        },
-        "street": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "user_id",
-        "del",
-        "col",
-        "numIn",
-        "numEx",
-        "street"
-      ]
-    },
-    "json1": {
-      "title": "json1",
-      "example": {
-        "name": "test",
-        "email": "i@gmail.com",
-        "birthday": "1976-04-10",
-        "phone": "6630671333",
-        "sex": "female",
-        "profile": "Admin",
-        "password": "123456"
+        "name": "john",
+        "title": "admin"
       },
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
         },
-        "email": {
-          "type": "string"
-        },
-        "birthday": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "sex": {
-          "type": "string"
-        },
-        "profile": {
-          "type": "string"
-        },
-        "password": {
+        "title": {
           "type": "string"
         }
       },
       "required": [
         "name",
-        "email",
-        "birthday",
-        "phone",
-        "sex",
-        "profile",
-        "password"
+        "title"
       ]
     },
-    "json2": {
-      "title": "json2",
+    "data1": {
+      "title": "data1",
       "example": {
-        "email": "lesly317@8gmail.com",
-        "password": "123456",
-        "getToken": ""
-      },
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "getToken": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "email",
-        "password",
-        "getToken"
-      ]
-    },
-    "json3": {
-      "title": "json3",
-      "example": {
-        "name": "test tress",
-        "email": "admin@gmail.com",
-        "birthday": "1976-04-10",
-        "phone": "555542186",
-        "sex": "female",
-        "profile": "Admin"
+        "name": "john",
+        "title": "user",
+        "compled": "0"
       },
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
         },
-        "email": {
+        "title": {
           "type": "string"
         },
-        "birthday": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "sex": {
-          "type": "string"
-        },
-        "profile": {
+        "compled": {
           "type": "string"
         }
       },
       "required": [
         "name",
-        "email",
-        "birthday",
-        "phone",
-        "sex",
-        "profile"
+        "title",
+        "compled"
       ]
     },
-    "json4": {
-      "title": "json4",
+    "data2": {
+      "title": "data2",
       "example": {
-        "id": "41",
-        "user_id": "43",
-        "del": "gdl jalisco",
-        "col": "centro",
-        "numIn": "633",
-        "numEx": "643",
-        "street": "paz"
+        "compled": "1"
       },
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "user_id": {
-          "type": "string"
-        },
-        "del": {
-          "type": "string"
-        },
-        "col": {
-          "type": "string"
-        },
-        "numIn": {
-          "type": "string"
-        },
-        "numEx": {
-          "type": "string"
-        },
-        "street": {
+        "compled": {
           "type": "string"
         }
       },
       "required": [
-        "id",
-        "user_id",
-        "del",
-        "col",
-        "numIn",
-        "numEx",
-        "street"
+        "compled"
       ]
     }
   },

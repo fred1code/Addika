@@ -11,6 +11,8 @@ router.get("/", list);
 router.get("/:id", get);
 router.post("/",urlencodedParser, post);
 router.put("/:id",urlencodedParser, put);
+router.patch("/:id",urlencodedParser, patch);
+router.delete("/:id", delet);
 
 function list(req, res) {
   Controller.list()
@@ -54,7 +56,17 @@ function put(req, res) {
 }
 
 function patch(req, res) {
-  Controller.put(req.body.data ,req.params.id)
+  Controller.patch(req.query.data ,req.params.id)
+    .then((user) => {
+      response.success(req, res, user, 200);
+    })
+    .catch((err) => {
+      response.error(req, res, err.message, 500);
+    });
+}
+
+function delet(req, res) {
+  Controller.delet(req.params.id)
     .then((user) => {
       response.success(req, res, user, 200);
     })
